@@ -2,15 +2,18 @@ import express, { Request, Response, NextFunction } from "express"
 import multer from "multer"
 import { addFood, getFoods, getVendorProfile, updateVendorCoverImage, updateVendorProfile, updateVendorService, vendorLogin } from "../controllers"
 import { authenticate } from "../middleware"
+import path from 'path';
 
 const router = express.Router()
 
 const imageStorage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, "images")
+        const imagesDir = path.join(__dirname, '../images')
+        cb(null, imagesDir)
     },
     filename: function(req, file, cb) {
-        cb(null, new Date().toISOString()+"_"+ file.originalname)
+        const filename = new Date().toISOString().replace(/:/g, "-") + "_" + file.originalname // --> replace is used to replace : by - for windows
+        cb(null, filename)
     }
 })
 

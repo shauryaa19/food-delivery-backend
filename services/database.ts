@@ -9,6 +9,8 @@ export default async () => {
             // useUnifiedTopology: true,
             // useCreateIndex: true
         })
+
+        console.log("DB CONNECTED")
         
     } catch (error) {
         console.log(error);

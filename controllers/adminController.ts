@@ -39,7 +39,6 @@ export const createVendor = async (req: Request, res: Response, next: NextFuncti
         password: userPassword, 
         ownerName, 
         phone,
-        salt: "hkuiu",
         rating: 0,
         serviceAvailable: false,
         coverImages: [],

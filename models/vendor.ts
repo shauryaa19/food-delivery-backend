@@ -9,7 +9,6 @@ interface VendorDoc extends Document {
     password: string; 
     ownerName: string; 
     phone: string;
-    salt: string;
     serviceAvailable: boolean;
     coverImages: [string];
     rating: number;
@@ -44,10 +43,6 @@ const vendorSchema : Schema<VendorDoc> = new Schema({
         required: true
     }, 
     phone: {
-        type: String,
-        required: true
-    },
-    salt: {
         type: String,
         required: true
     },
